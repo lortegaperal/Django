@@ -6,8 +6,6 @@ class Editorial(models.Model):
     nombre = models.TextField(max_length=150)
 
 
-
-
 class Libro(models.Model):
 
     id = models.IntegerField(primary_key= True)
