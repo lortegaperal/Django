@@ -26,7 +26,7 @@ class Videojuego(models.Model):
     nombre = models.TextField(max_length=150)
     num_horas = models.IntegerField()
     genero = models.TextField(max_length=150)
-    fecha_publicacion = models.DateTimeField()
+    fecha_publicacion = models.DateField()
 
     def __str__(self):
         texto = "{0} ({1})"
