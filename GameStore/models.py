@@ -1,4 +1,6 @@
 from django.db import models
+from django_enumfield import enum
+from django_enumfield.db.fields import EnumField
 
 
 class Videojuego(models.Model):
@@ -7,7 +9,7 @@ class Videojuego(models.Model):
     num_horas = models.IntegerField()
     genero = models.TextField(max_length=150)
     fecha_publicacion = models.DateField()
-    compania = models.TextField(max_length=150)
+    compania = EnumField("Nintendo", "Sony", "Xbox")
 
 
     def __str__(self):
