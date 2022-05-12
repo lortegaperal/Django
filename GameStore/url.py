@@ -6,6 +6,9 @@ urlpatterns = [
 
     path('', cargar_inicio),
     path('registrarVideojuego/', registrarVideojuego),
-    path('eliminarVideojuego/<id>', eliminarCurso)
+    path('edicionVideojuego/<id>', edicionVideojuego),
+    path('editarVideojuego/', editarVideojuego),
+    path('eliminarVideojuego/<id>', eliminarVideojuego),
+
 
 ]

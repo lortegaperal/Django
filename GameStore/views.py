@@ -26,7 +26,32 @@ def registrarVideojuego(request):
     )
     return redirect('/')
 
-def eliminarCurso(request, id):
+def edicionVideojuego(request, id):
+    videojuego = Videojuego.objects.get(id=id)
+    return render(request, "edicionVideojuego.html", {"videojuego":videojuego})
+
+
+def editarVideojuego(request):
+
+    id = request.POST['numId']
+    nombre = request.POST['txtNombre']
+    num_horas = request.POST['numHoras']
+    genero = request.POST['txtGenero']
+    fecha_publicacion = request.POST['dateFecha']
+
+    videojuego = Videojuego.objects.get(id=id)
+    videojuego.nombre = nombre
+    videojuego.num_horas = num_horas
+    videojuego.genero = genero
+    videojuego.fecha_publicacion = fecha_publicacion
+    videojuego.save()
+    return redirect('/')
+
+
+
+
+def eliminarVideojuego(request, id):
     videojuego = Videojuego.objects.get(id=id)
     videojuego.delete()
     return redirect('/')
+
