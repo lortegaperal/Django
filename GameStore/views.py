@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 
 
@@ -13,4 +13,20 @@ def cargar_inicio(request):
     return render(request, "inicio.html", {"videojuegos":videojuegos})
 
 
+def registrarVideojuego(request):
 
+    id = request.POST['numId']
+    nombre = request.POST['txtNombre']
+    num_horas = request.POST['numHoras']
+    genero = request.POST['txtGenero']
+    fecha_publicacion = request.POST['dateFecha']
+
+    videojuego = Videojuego.objects.create(
+        id=id, nombre=nombre, num_horas=num_horas, genero=genero, fecha_publicacion=fecha_publicacion
+    )
+    return redirect('/')
+
+def eliminarCurso(request, id):
+    videojuego = Videojuego.objects.get(id=id)
+    videojuego.delete()
+    return redirect('/')

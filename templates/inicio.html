@@ -4,32 +4,35 @@
 
 {% block body %}
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 py-4">
         <h2>Gestion de videojuegos</h2>
         <div class="card">
             <div class="card-body">
-                <form action="" method="POST">
-                    <div class="form-group">
+                <form action="/registrarVideojuego/" method="POST">{% csrf_token %}
+                    <div class="form-group py-1">
                         <input type="text" id="numId" name="numId" class="form-control" placeholder="Id" minlength="1" maxlength="1000000" required>
                     </div>
-                    <div class="form-group">
-                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" minlength="6" maxlength="50" required>
+                    <div class="form-group py-1">
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" minlength="3" maxlength="50" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group py-1">
                         <input type="text" id="numHoras" name="numHoras" class="form-control" placeholder="Num_Horas" minlength="1" maxlength="100" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group py-1">
                         <input type="text" id="txtGenero" name="txtGenero" class="form-control" placeholder="Genero" minlength="1" maxlength="50" required>
                     </div>
-                    <div class="form-group">
-                        <input type="date" id="txtFecha" name="txtFecha" class="form-control" placeholder="Fecha" required>
+                    <div class="form-group py-1">
+                        <input type="date" id="dateFecha" name="dateFecha" class="form-control" placeholder="Fecha de publicación" required>
+                    </div>
+                    <div class="form-group py-1">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
                     </div>
 
                 </form>
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 py-4">
         <h2>Listado de videojuegos</h2>
         <div class="table-responsive py-2">
             <table class="table table-striped">
@@ -40,15 +43,20 @@
                         <th>num_horas</th>
                         <th>genero</th>
                         <th>fecha_publicacion</th>
+                        <th colspan="2">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for videojuego in videojuegos %}
-                        <td>{{ videojuego.id }}</td>
-                        <td>{{ videojuego.nombre }}</td>
-                        <td>{{ videojuego.num_horas }}</td>
-                        <td>{{ videojuego.genero }}</td>
-                        <td>{{ videojuego.fecha_publicacion }}</td>
+                        <tr>
+                            <td>{{ videojuego.id }}</td>
+                            <td>{{ videojuego.nombre }}</td>
+                            <td>{{ videojuego.num_horas }}</td>
+                            <td>{{ videojuego.genero }}</td>
+                            <td>{{ videojuego.fecha_publicacion }}</td>
+                            <td><a href="edicionVideojuego/{{videojuego.id}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="eliminarVideojuego/{{videojuego.id}}" class="btn btn-danger">Eliminar</a>  </td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
