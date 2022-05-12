@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from django.views.generic import RedirectView
+from GameStore import views
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path("GameStore/", include("GameStore.url"))
+    path("GameStore/", include("GameStore.url")),
+    path('', include('GameStore.url')),
 ]

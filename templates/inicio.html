@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-</head>
-<body>
-    <h1>Bienvenido a mi libreria</h1>
-</body>
-</html>
+{% extends "./base.html" %}
+
+{% block title %} GameStore {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h2>Gestion de videojuegos</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="numId" name="numId" class="form-control" placeholder="Id" minlength="1" maxlength="1000000" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" minlength="6" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="numHoras" name="numHoras" class="form-control" placeholder="Num_Horas" minlength="1" maxlength="100" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtGenero" name="txtGenero" class="form-control" placeholder="Genero" minlength="1" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="txtFecha" name="txtFecha" class="form-control" placeholder="Fecha" required>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h2>Listado de videojuegos</h2>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>nombre</th>
+                        <th>num_horas</th>
+                        <th>genero</th>
+                        <th>fecha_publicacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for videojuego in videojuegos %}
+                        <td>{{ videojuego.id }}</td>
+                        <td>{{ videojuego.nombre }}</td>
+                        <td>{{ videojuego.num_horas }}</td>
+                        <td>{{ videojuego.genero }}</td>
+                        <td>{{ videojuego.fecha_publicacion }}</td>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

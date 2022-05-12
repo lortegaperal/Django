@@ -5,11 +5,12 @@ from .models import *
 
 # Create your views here.
 def cargar_inicio(request):
-    return render(request, "inicio.html")
 
-def cargar_vista_libros(request):
-    lista_libros = Libro.objects.all()
-    return render(request, "libros.html", {"libros": lista_libros})
+    consola = Consola.objects.all()
+    compania = Compania.objects.all()
+    videojuegos = Videojuego.objects.all()
 
-def crear_libro(request):
-    return None
+    return render(request, "inicio.html", {"videojuegos":videojuegos})
+
+
+
