@@ -1,11 +1,11 @@
 {% extends "./base.html" %}
 
-{% block title %} GameStore {% endblock %}
+{% block title %}  {% endblock %}
 
 {% block body %}
 <div class="row">
     <div class="col-md-4 offset-md-4">
-        <h2>Edicion de videojuegos</h2>
+        <h2>Editar videojuego</h2>
         <div class="card">
             <div class="card-body">
                 <form action="/editarVideojuego/" method="POST">{% csrf_token %}
@@ -23,6 +23,9 @@
                     </div>
                     <div class="form-group py-1">
                         <input type="date" id="dateFecha" name="dateFecha" value="{{videojuego.fecha_publicacion}}" class="form-control" placeholder="Fecha de publicación" required>
+                    </div>
+                    <div class="form-group py-1">
+                        <input type="" id="dateFecha" name="dateFecha" value="{{videojuego.fecha_publicacion}}" class="form-control" placeholder="Fecha de publicación" required>
                     </div>
                     <div class="form-group py-1">
                         <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
