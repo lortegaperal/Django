@@ -4,9 +4,12 @@ from .views import *
 
 urlpatterns = [
 
-    path('indice/', cargar_indice),
-    path('', cargar_inicio),
+    path('', cargar_indice),
+    path('editar/', cargar_inicio),
     path('listadovideojuegos/', cargar_lista),
+    path('listadovideojuegosNintendo/', cargar_listaN),
+    path('listadovideojuegosSony/', cargar_listaS),
+    path('listadovideojuegosXbox/', cargar_listaX),
     path('registrarVideojuego/', registrarVideojuego),
     path('edicionVideojuego/<id>', edicionVideojuego),
     path('editarVideojuego/', editarVideojuego),

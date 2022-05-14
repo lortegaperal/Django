@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+
+{% block title %} Gaministration {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 py-4">
+        <h2>Listado de videojuegos</h2>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>nombre</th>
+                        <th>num_horas</th>
+                        <th>genero</th>
+                        <th>Compañía</th>
+                        <th>fecha_publicacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for videojuego in videojuegos %}
+                        <tr>
+                            {% if videojuego.compania == "Nintendo" %}
+                                <td style="background: red">{{ videojuego.id }}</td>
+                                <td>{{ videojuego.nombre }}</td>
+                                <td>{{ videojuego.num_horas }}</td>
+                                <td>{{ videojuego.genero }}</td>
+                                <td>{{ videojuego.compania }}</td>
+                                <td>{{ videojuego.fecha_publicacion }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

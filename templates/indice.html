@@ -1,44 +1,122 @@
 {% extends "./base.html" %}
 
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Gaministration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+
+
+
+
+
+<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+
 {% block title %} Gaministration {% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 py-4">
-        <div class="table-responsive py-2">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>nombre</th>
-                        <th>num_horas</th>
-                        <th>genero</th>
-                        <th>Compañía</th>
-                        <th>fecha_publicacion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for videojuego in videojuegos %}
-                        <tr>
-                            {% if videojuego.compania == "Nintendo" %}
-                                <td style="background: red">{{ videojuego.id }}</td>
-                            {% endif %}
-                            {% if videojuego.compania == "Sony" %}
-                                <td style="background: blue">{{ videojuego.id }}</td>
-                            {% endif %}
-                            {% if videojuego.compania == "Xbox" %}
-                                <td style="background: lawngreen">{{ videojuego.id }}</td>
-                            {% endif %}
-                            <td>{{ videojuego.nombre }}</td>
-                            <td>{{ videojuego.num_horas }}</td>
-                            <td>{{ videojuego.genero }}</td>
-                            <td>{{ videojuego.compania }}</td>
-                            <td>{{ videojuego.fecha_publicacion }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><image href="data:image/png;base64,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"/></svg>
+
+        <h2 class="fw-normal">Nintendo</h2>
+        <p>Nintendo es una de las empresas internacionales líderes de entretenimiento interactivo, y está enfocada al desarrollo, producción y venta de consolas y videojuegos.</p>
+        <p><a class="btn btn-secondary" href="/listadovideojuegosNintendo/" style="background: red">Ver detalles &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><image href="https://cdn.icon-icons.com/icons2/2428/PNG/128/playstation_black_logo_icon_147094.png"></image></svg>
+
+        <h2 class="fw-normal">Sony</h2>
+        <p>PlayStation es una serie de consolas de videojuegos creadas y desarrolladas por Sony Computer Entertainment con consolas entre la quinta y la novena generación.</p>
+        <p><a class="btn btn-secondary" href="/listadovideojuegosSony/" style="background: blue">Ver detalles &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><image href="https://icons.veryicon.com/png/128/sport/cb-2/logo-xbox-6.png"></image></svg>
+        <h2 class="fw-normal">Xbox</h2>
+        <p>Xbox es una marca de videojuegos creada por y propiedad de Microsoft que incluye una serie de videoconsolas desarrolladas por la misma compañía, de sexta a novena generación.</p>
+        <p><a class="btn btn-secondary" href="/listadovideojuegosXbox/" style="background: lawngreen">Ver detalles &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+</main>
 {% endblock %}

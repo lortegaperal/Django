@@ -12,6 +12,21 @@ def cargar_lista(request):
     videojuegos = Videojuego.objects.all()
     return render(request, "ListadoVideojuegos.html", {"videojuegos":videojuegos})
 
+def cargar_listaN(request):
+
+    videojuegos = Videojuego.objects.all()
+    return render(request, "ListadoVideojuegosNintendo.html", {"videojuegos":videojuegos})
+
+def cargar_listaS(request):
+
+    videojuegos = Videojuego.objects.all()
+    return render(request, "ListadoVideojuegosSony.html", {"videojuegos":videojuegos})
+
+def cargar_listaX(request):
+
+    videojuegos = Videojuego.objects.all()
+    return render(request, "ListadoVideojuegosXbox.html", {"videojuegos":videojuegos})
+
 
 def cargar_indice(request):
 
