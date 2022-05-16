@@ -46,7 +46,7 @@ def registrarVideojuego(request):
     videojuego = Videojuego.objects.create(
         id=id, nombre=nombre, num_horas=num_horas, genero=genero, compania=compania, fecha_publicacion=fecha_publicacion
     )
-    return redirect('/')
+    return redirect('/editar/')
 
 def edicionVideojuego(request, id):
     videojuego = Videojuego.objects.get(id=id)
@@ -68,7 +68,7 @@ def editarVideojuego(request):
     videojuego.compania = compania
     videojuego.fecha_publicacion = fecha_publicacion
     videojuego.save()
-    return redirect('/')
+    return redirect('/editar/')
 
 
 
@@ -76,5 +76,5 @@ def editarVideojuego(request):
 def eliminarVideojuego(request, id):
     videojuego = Videojuego.objects.get(id=id)
     videojuego.delete()
-    return redirect('/')
+    return redirect('/editar/')
 
